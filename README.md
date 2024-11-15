@@ -1,82 +1,80 @@
-# Build a Drum Machine
+# JavaScript Calculator
 
-**Note**: React 18 has known incompatibilities with the tests for this project ([see issue](https://github.com/freeCodeCamp/testable-projects-fcc/issues)).
+### Objective
+Build an app that is functionally similar to this: [JavaScript Calculator Example](https://javascript-calculator.freecodecamp.rocks/).
 
-## Objective
-Build an app that is functionally similar to this: [Drum Machine Example](https://drum-machine.freecodecamp.rocks/).
+Fulfill the user stories below and ensure all tests pass. Use any libraries or APIs you need, and give it your own personal style.
 
-Fulfill the user stories below and ensure all tests pass. Use any libraries or APIs you need, and give the project your own personal style.
+### Notes
+- **React 18 Incompatibility**: There are known issues with the tests for this project when using React 18 ([see issue](#)).
+- Use a frontend framework (like React) as this section focuses on learning frontend frameworks. Other technologies not listed below are used at your own risk.
+- Supported technologies include HTML, JavaScript, CSS, Bootstrap, SASS, React, Redux, and jQuery.
 
-## Technologies
-You can use any combination of the following:
-- **HTML**, **JavaScript**, **CSS**, **Bootstrap**, **SASS**, **React**, **Redux**, and **jQuery**.
+### User Stories
 
-> **Note**: This section focuses on learning frontend frameworks, so you should use one (e.g., React). Additional technologies not listed above are not recommended and using them is at your own risk. 
+1. **Clickable "=" Button**  
+   My calculator should contain a clickable element with an equal sign (`=`) and an `id="equals"`.
 
-We are exploring support for frameworks like Angular and Vue, but they are not currently supported. If you use the suggested stack and encounter issues, we will try to address them.
+2. **Clickable Number Buttons**  
+   My calculator should contain 10 clickable elements, one for each number `0-9`, with corresponding IDs:  
+   `id="zero"`, `id="one"`, `id="two"`, `id="three"`, `id="four"`, `id="five"`, `id="six"`, `id="seven"`, `id="eight"`, `id="nine"`.
 
-Happy coding!
+3. **Primary Operators**  
+   My calculator should contain 4 clickable elements for the primary operators (`+`, `-`, `*`, `/`) with corresponding IDs:  
+   `id="add"`, `id="subtract"`, `id="multiply"`, `id="divide"`.
 
----
+4. **Decimal Point**  
+   My calculator should contain a clickable element for the decimal point (`.`) with an `id="decimal"`.
 
-## User Stories
+5. **Clear Button**  
+   My calculator should contain a clickable element with an `id="clear"`.
 
-1. **User Story #1**:  
-   I should be able to see an outer container with a corresponding `id="drum-machine"` that contains all other elements.
+6. **Display Values**  
+   My calculator should contain an element to display values with an `id="display"`.
 
-2. **User Story #2**:  
-   Within `#drum-machine`, I can see an element with a corresponding `id="display"`.
+7. **Clear Functionality**  
+   Pressing the clear button resets the calculator to its initialized state, displaying `0` in the `display` element.
 
-3. **User Story #3**:  
-   Within `#drum-machine`, I can see 9 clickable drum pad elements:  
-   - Each has a class name of `drum-pad`.  
-   - Each has a unique `id` that describes the audio clip it triggers.  
-   - Each has inner text corresponding to one of the following keys: `Q`, `W`, `E`, `A`, `S`, `D`, `Z`, `X`, `C`.  
-   - The drum pads **must** be in this order.
+8. **Input Display**  
+   As I input numbers, they should appear in the `display` element.
 
-4. **User Story #4**:  
-   Within each `.drum-pad`, there should be an HTML5 `<audio>` element with:  
-   - A `src` attribute pointing to an audio clip.  
-   - A class name of `clip`.  
-   - An `id` matching the inner text of its parent `.drum-pad` (e.g., `id="Q"`, `id="W"`, etc.).
+9. **Chained Calculations**  
+   I should be able to perform chained calculations (e.g., `5 + 5 - 3 * 2`) and see the correct result when `=` is pressed.
 
-5. **User Story #5**:  
-   When I click on a `.drum-pad` element, the audio clip contained in its child `<audio>` element should be triggered.
+10. **Leading Zeros**  
+    My calculator should not allow numbers to start with multiple zeros (e.g., `0001`).
 
-6. **User Story #6**:  
-   When I press the trigger key associated with each `.drum-pad`, the audio clip contained in its child `<audio>` element should be triggered (e.g., pressing the `Q` key triggers the drum pad containing the string `Q`).
+11. **Decimal Logic**  
+    Clicking the decimal button (`.`) appends a `.` to the displayed value. Multiple `.` in one number are not allowed.
 
-7. **User Story #7**:  
-   When a `.drum-pad` is triggered, a string describing the associated audio clip should be displayed as the inner text of the `#display` element. Each string must be unique.
+12. **Operations with Decimals**  
+    I should be able to perform operations (`+`, `-`, `*`, `/`) on numbers with decimal points.
 
----
+13. **Consecutive Operators**  
+    If multiple operators are entered consecutively, the last operator entered (excluding `-`) should be used.  
+    - Example: `5 + * 7` should evaluate as `5 * 7 = 35`.
 
-## Audio Samples
-Here are some audio samples you can use for your drum machine:
+14. **New Calculation**  
+    Pressing an operator after `=` starts a new calculation using the previous result.
 
-- Heater 1  
-- Heater 2  
-- Heater 3  
-- Heater 4  
-- Clap  
-- Open-HH  
-- Kick-n'-Hat  
-- Kick  
-- Closed-HH  
+15. **Precision**  
+    My calculator should handle calculations with reasonable precision (e.g., `2 / 7` should display at least 4 decimal places).
 
----
+### Notes on Calculator Logic
+There are two primary approaches to calculator logic:
+- **Immediate Execution Logic**: Operates calculations as soon as operators are entered.
+- **Formula Logic**: Observes order of operations and calculates based on the complete formula.
 
-## Development Resources
+**Example: `3 + 5 * 6 - 2 / 4`**
+- Immediate Execution Logic: `11.5`
+- Formula/Expression Logic: `32.5`
 
-### CodePen Template
-You can build your project using this [CodePen template](https://codepen.io/freeCodeCamp/pen/MJjpwO). Click **Save** to create your own pen.
+Either approach is acceptable, as long as the results can be verified using another calculator.
 
-### Test CDN
-Alternatively, you can use this CDN link to run the tests in any environment you like:  
-[https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js](https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js)
+### Setup
+You can use the following tools to build and test your project:
+- [CodePen Template](#) (click **Save** to create your own pen).
+- [FCC CDN Link](https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js): Include this to run tests in any environment.
 
----
-
-## Submission
-Once you're done, submit the URL to your working project with all tests passing.
-```
+### Submission
+Once complete, submit the URL to your working project with all tests passing.
